@@ -2,6 +2,8 @@
 
 GoTime is a time toolkit for golang
 
+[![GoDoc](https://godoc.org/github.com/aligoren/gotime?status.svg)](https://godoc.org/github.com/aligoren/gotime)
+
 #Usage:
 
 Check main file in test folder or follow this code:
