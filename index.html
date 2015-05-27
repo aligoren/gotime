@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Gotime by aligoren</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Gotime</h1>
+        <h2>Gotime is a time toolkit for golang</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/aligoren/gotime/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/aligoren/gotime/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/aligoren/gotime" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="gotime" class="anchor" href="#gotime" aria-hidden="true"><span class="octicon octicon-link"></span></a>GoTime</h1>
+
+<p>GoTime is a time toolkit for golang</p>
+
+<p><a href="https://godoc.org/github.com/aligoren/gotime"><img src="https://godoc.org/github.com/aligoren/gotime?status.svg" alt="GoDoc"></a></p>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage:</h1>
+
+<p>Check main file in test folder or follow this code:</p>
+
+<p><strong>Import</strong></p>
+
+<div class="highlight highlight-go"><pre><span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>github.com/aligoren/gotime<span class="pl-pds">"</span></span></pre></div>
+
+<p><strong>Current Type Functions:</strong></p>
+
+<pre><code>TimeNow() =&gt; Now Time
+DayNow() =&gt; Day Now
+WeekNow() =&gt; Weekday Now
+PreviousDay() =&gt; Previous Day (DayNow -1)
+NextDay() =&gt; Next Day (DayNow + 1)
+DayAgo() =&gt; X Days Ago (3 Day Ago)
+DayLater() =&gt; X Days Later (5 Day Later)
+MonthNow() =&gt; Month Now
+MonthAgo() =&gt; X Months Ago
+MonthLater() =&gt; X Months Later
+YearNow() =&gt; Current Year
+YearAgo() =&gt; X Years Ago (3 Years Ago: 2012)
+YearLater() =&gt; X Years Later (3 Years Later: 2018)
+DayOfWeek() =&gt; X Day of Week (Day of Week 3th: Wednesday)
+DayOfYear() =&gt; Current Now: 134th Day of Year
+</code></pre>
+
+<p><strong>Wait Functions:</strong></p>
+
+<pre><code>WaitMicro() =&gt; Wait for X Microseconds
+WaitNS() =&gt; Wait for X Nanoseconds
+WaitMS() =&gt; Wait for X Milliseconds
+WaitSec() =&gt; Wait for X Seconds
+WaitMin() =&gt; Wait for X Minutes
+WaitHour() =&gt; Wait for X Hours
+</code></pre>
+
+<h1>
+<a id="sample-usage" class="anchor" href="#sample-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Usage:</h1>
+
+<div class="highlight highlight-go"><pre><span class="pl-k">package</span> main
+
+<span class="pl-k">import</span> (
+    <span class="pl-s"><span class="pl-pds">"</span>fmt<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>github.com/aligoren/gotime<span class="pl-pds">"</span></span>
+)
+
+<span class="pl-k">func</span> <span class="pl-en">main</span>() {
+
+    <span class="pl-smi">s</span> <span class="pl-k">:=</span> gotime.<span class="pl-smi">Now</span>{}
+
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">TimeNow</span>()) <span class="pl-c">// Now Time 14:55:29 (My current time)</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">DayNow</span>()) <span class="pl-c">// Day Now (14th)</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">WeekNow</span>()) <span class="pl-c">// Weekday (Thursday)</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">PreviousDay</span>()) <span class="pl-c">// Wednesday May 13</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">NextDay</span>()) <span class="pl-c">// Friday May 15</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">DayAgo</span>(<span class="pl-c1">3</span>)) <span class="pl-c">// 3 Days Ago: Monday</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">DayLater</span>(<span class="pl-c1">2</span>)) <span class="pl-c">// 2 Days Later: Saturday</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">MonthNow</span>()) <span class="pl-c">// Now Month (May)</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">MonthAgo</span>(<span class="pl-c1">3</span>)) <span class="pl-c">// 3 Months Ago: February</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">MonthLater</span>(<span class="pl-c1">3</span>)) <span class="pl-c">// 3 Months Later: August</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">YearNow</span>()) <span class="pl-c">// Year Now: 2015</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">YearAgo</span>(<span class="pl-c1">5</span>)) <span class="pl-c">// 5 Years Ago: 2010</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">YearLater</span>(<span class="pl-c1">5</span>)) <span class="pl-c">// 5 Years Later: 2020</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">DayOfWeek</span>(<span class="pl-c1">3</span>)) <span class="pl-c">// Day of Week 3th: Wednesday</span>
+    fmt.<span class="pl-c1">Println</span>(s.<span class="pl-c1">DayOfYear</span>()) <span class="pl-c">// Day of Year 134th</span>
+    s.<span class="pl-c1">WaitSec</span>(<span class="pl-c1">3</span>) <span class="pl-c">// Wait for 3 Seconds</span>
+    s.<span class="pl-c1">WaitMS</span>(<span class="pl-c1">300</span>) <span class="pl-c">// Wait for 300 Milliseconds</span>
+    s.<span class="pl-c1">WaitMicro</span>(<span class="pl-c1">5000</span>) <span class="pl-c">// Wait for 5000 Microsecond</span>
+    s.<span class="pl-c1">WaitNS</span>(<span class="pl-c1">3000</span>) <span class="pl-c">// Wait for 3000 Nanoseconds</span>
+    s.<span class="pl-c1">WaitMin</span>(<span class="pl-c1">3</span>) <span class="pl-c">// Wait for 3 Minutes</span>
+    s.<span class="pl-c1">WaitHour</span>(<span class="pl-c1">5</span>) <span class="pl-c">// Wait for 5 Hours</span>
+}</pre></div>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
